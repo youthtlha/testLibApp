@@ -1,13 +1,13 @@
 plugins {
-    alias(libs.plugins.android.library)
-    alias(libs.plugins.jetbrains.kotlin.android)
+    id 'com.android.library'
+    id 'kotlin-android'
     id 'maven-publish'
 
 }
 
 android {
     namespace 'com.tasleem.mylibrary'
-    compileSdk 34
+    compileSdk 31
 
     defaultConfig {
         minSdk 21
@@ -43,15 +43,14 @@ dependencies {
 
 afterEvaluate {
     publishing {
-       publications {
-           release(MavenPublication){
-               from components.release
+        publications {
+            release(MavenPublication) {
+                from components.release
 
-               groupId = 'com.github.talha'
-               artifactId = 'fribe-app'
-               version = 1.0
-           }
-       }
+                groupId = 'com.github.philipplackner'
+                artifactId = 'image-preview-compose'
+                version = '1.0'
+            }
+        }
     }
-
 }
